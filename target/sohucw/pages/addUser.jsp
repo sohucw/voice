@@ -17,7 +17,7 @@
   <title>SpringMVC 添加用户</title>
 
   <!-- 新 Bootstrap 核心 CSS 文件 -->
-  <link rel="stylesheet" href="/pages/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,7 +30,7 @@
 <div class="container">
   <h1>SpringMVC 添加用户</h1>
   <hr/>
-  <form:form action="/addUserPost" method="post" commandName="user" role="form">
+  <form:form action="/user/addUserPost" method="post" commandName="user" role="form">
     <div class="form-group">
       <label for="firstName">First Name:</label>
       <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter FirstName:"/>
@@ -50,9 +50,9 @@
 </div>
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="js/jquery.min.js"></script>
+<script src="../js/jquery.min.js"></script>
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="js/bootstrap.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -5,25 +5,25 @@ import com.sohucw.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by baidu on 15/12/7.
  */
 
 @Controller
+@RequestMapping("/user")
 public class MainController {
 
     @Autowired
     private UserRepository userRepository;
 
     // 首页
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
         return "index";
     }
@@ -51,7 +51,7 @@ public class MainController {
 
         userRepository.saveAndFlush(userEntity);
 
-        return  "redirect:/users";
+        return  "redirect:/user/users";
     }
 
 
@@ -78,7 +78,7 @@ public class MainController {
         // 更新用户信息
         userRepository.updateUser(userEntity.getFirstName(), userEntity.getLastName(),
                 userEntity.getPassword(), userEntity.getId());
-        return "redirect:/users";
+        return "redirect:/user/users";
     }
 
     // delete
@@ -87,6 +87,20 @@ public class MainController {
 
         userRepository.delete(userId);
        userRepository.flush();
-        return  "redirect:/users";
+        return  "redirect:/user/users";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
+    public Map<String, Object> test(String userName,String password) {
+        System.out.println(userName);
+        System.out.println(password);
+        UserEntity user = new UserEntity();
+        user.setFirstName("chen");
+        user.setLastName("jinanwei");
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("success", true);
+        map.put("data", user);
+        return map;
     }
 }

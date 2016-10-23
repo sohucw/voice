@@ -16,13 +16,13 @@
   <title>SpringMVC 用户详情</title>
 
   <!-- 新 Bootstrap 核心 CSS 文件 -->
-  <link rel="stylesheet" href="/pages/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
-  <script src="/pages/js/html5shiv.min.js"></script>
-  <script src="/pages/js/respond.min.js"></script>
+  <script src="<%=request.getContextPath()%>/js/html5shiv.min.js"></script>
+  <script src="<%=request.getContextPath()%>/js/respond.min.js"></script>
   <![endif]-->
 </head>
 <body>
@@ -51,9 +51,9 @@
 </div>
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="/pages/js/jquery.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="/pages/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -16,14 +16,7 @@
   <title>SpringMVC Demo 首页</title>
 
   <!-- 新 Bootstrap 核心 CSS 文件 -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css">
 </head>
 <body>
 <h1>这里是SpringMVC Demo首页</h1>
@@ -31,14 +24,29 @@
 <h3>出现此页面，说明配置成功。</h3>
 
 <div>
-  <a href="/users">用户列表页面</a>
+  <a href="/user/users">用户列表页面</a>
 
 </div>
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-
+<script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+    var data = {userName: "MyUsername", password:"Password"};
+    $.ajax({
+      url: '/user/test',
+      dataType : 'json',
+      type : 'get',
+      contentType: "application/json",
+      data: data,
+      success: function(response){
+        console.log(response);
+        console.log(response.data.firstName)
+      }
+    });
+  })
+</script>
 </body>
 </html>
